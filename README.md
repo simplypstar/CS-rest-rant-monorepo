@@ -10,6 +10,7 @@ PORT=5001
 DB_USERNAME=rest_rant_user
 DB_PASSWORD=password
 DB_DATABASE=rest_rant
+
 ```
 
 Next `cd` into `backend` and run `npm install` to install dependencies for the API.
@@ -40,3 +41,26 @@ Finally, in separate terminals, run `npm start` in each folder so that the API a
 | /places/new           | `places/NewPlaceForm.js`  | Form for creating a new place                                                   |
 | /places/:placeId      | `places/PlaceDetails.js`  | Details of a place, including it's comments, and a form to create a new comment |
 | /places/:placeId/edit | `places/EditPlaceForm.js` | Form for editing a place                                                        |
+
+Additional Notes:
+
+## PostgresSQL Database - rest_rant_auth
+# Users Table
+| Field name         | Data Type        | Required   | primaryLey  | autoIncrement |
+| ------------------ | ---------------- | -----------|-------------|---------------|
+|  ID                |  SMALLINT        |  true      |  true       |   true        |
+|  firstName         |  STRING          |  true      |  false      |   false       |
+|  lastName          |  STRING          |  true	     |  false      |   false       |
+|  email             |  STRING          |  true	     |  false      |   false       |
+|  passwordDigest    |  STRING          |  true	     |  false      |   false       |
+
+
+
+- Changed the port for the backend server from 5000 to 5001 due to a conflicts on a MAC with port # 5000
+	- Made this same change on the LoginForm.js. CurrentUser.js, and Signup.js files
+		
+- Updated the backend .env with compliance settings 
+
+- Included Session-Authentication 
+
+- Included Json Web Tokem (JWT)
