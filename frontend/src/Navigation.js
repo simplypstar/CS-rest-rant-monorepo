@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from 'react'
-import { useHistory } from "react-router";
+import { useContext } from 'react';   // add useState, useEffect
+import { useHistory } from 'react-router';
 import { CurrentUser } from './contexts/CurrentUser';
 
 function Navigation() {
@@ -15,6 +15,7 @@ function Navigation() {
                     Sign Up
                 </a>
             </li>
+            
             <li style={{ float: 'right' }}>
                 <a href="#" onClick={() => history.push("/login")}>
                     Login
@@ -23,11 +24,19 @@ function Navigation() {
         </>
     )
 
+    // Added a logout function
     if (currentUser) {
         loginActions = (
-            <li style={{ float: 'right' }}>
-                Logged in as {currentUser.firstName} {currentUser.lastName}
-            </li>
+            <>
+                <li style={{ float: 'right' }}>
+                    <a href="#" onClick={() => history.push("/log-out")}>
+                        Log Out
+                    </a>
+                </li>
+                <li style={{ float: 'right' }}>
+                    Logged in as {currentUser.firstName} {currentUser.lastName}
+                </li>                
+            </>
         )
     }
 

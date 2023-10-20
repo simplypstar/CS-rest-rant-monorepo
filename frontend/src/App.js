@@ -8,6 +8,7 @@ import NewPlaceForm from './places/NewPlaceForm'
 import EditPlaceForm from './places/EditPlaceForm'
 import SignUpForm from './users/SignUpForm'
 import LoginForm from './users/LoginForm'
+import UserLogout from './users/UserLogout'  // Added a Logout function
 import CurrentUserProvider from './contexts/CurrentUser'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/sign-up" component={SignUpForm} />
           <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/log-out" component={UserLogout} />
           <Route exact path="/places" component={PlaceIndex} />
           <Route exact path="/places/new" component={NewPlaceForm} />
           <Route exact path="/places/:placeId" component={PlaceDetails} />

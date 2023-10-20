@@ -36,7 +36,30 @@ Finally, in separate terminals, run `npm start` in each folder so that the API a
 | --------------------- | ------------------------- | ------------------------------------------------------------------------------- |
 | /                     | `Home.js`                 | Home page                                                                       |
 | /sign-up              | `users/SignUpForm.js`     | Form for creating a new user                                                    |
+| /log-out              | `users/UserLogout.js`      | A link in the navigation bar that allows a logged on user to logout
 | /places               | `places/PlaceIndex.js`    | List of places                                                                  |
 | /places/new           | `places/NewPlaceForm.js`  | Form for creating a new place                                                   |
 | /places/:placeId      | `places/PlaceDetails.js`  | Details of a place, including it's comments, and a form to create a new comment |
 | /places/:placeId/edit | `places/EditPlaceForm.js` | Form for editing a place                                                        |
+
+
+#Added a User-Logout function
+- Referenced GitHub-CoPilot for assistance with fixing errors with the use of React Hooks
+
+##Photo references:
+- burger-photo.jpg
+    The Burger Joint
+    https://www.istockphoto.com/photo/junk-food-homemade-beef-burgers-on-vintage-wooden-background-gm1302436326-394176005?utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fhamburger-restaurant&utm_medium=affiliate&utm_source=unsplash&utm_term=hamburger+restaurant%3A%3A%3A
+    Photo by: Zygonema
+
+- jason-leung-unsplash.jpg
+    Mama's Kitchen
+    https://unsplash.com/collections/4308781/restaurant
+    Photo by: Jason Leung
+
+-   jiangxulei1990-unsplash.jpg
+    Dad's Barbecue
+    https://unsplash.com/collections/4308781/restaurant
+    Photo by: Jiangxulei1990
+
+    

@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react"
-import { useHistory } from "react-router"
+import { useState, useContext } from "react"
+//import { useHistory } from "react-router"
+import { CurrentUser } from '../contexts/CurrentUser'
 
 function NewCommentForm({ place, onSubmit }) {
 
-    const [authors, setAuthors] = useState([])
+    //const [authors, setAuthors] = useState([])
 
     const [comment, setComment] = useState({
         content: '',
         stars: 3,
         rant: false,
-        authorId: ''
+        //authorId: ''
     })
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`http://localhost:5001/users`)
-            const users = await response.json()
-            setComment({ ...comment, authorId: users[0]?.userId})
-            setAuthors(users)
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const response = await fetch(`http://localhost:5001/users`)
+    //         const users = await response.json()
+    //         setAuthors(users)
+    //     }
+    //     fetchData()
+    // }, [setAuthors])
 
-    let authorOptions = authors.map(author => {
-        return <option key={author.userId} value={author.userId}>{author.firstName} {author.lastName}</option>
-    })
+    // let authorOptions = authors.map(author => {
+    //     return <option key={author.userId} value={author.userId}>{author.firstName} {author.lastName}</option>
+    // })
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -33,9 +33,16 @@ function NewCommentForm({ place, onSubmit }) {
             content: '',
             stars: 3,
             rant: false,
-            authorId: authors[0]?.userId
+            //authorId: authors[0]?.userId
         })
     }
+
+    const { currentUser } = useContext(CurrentUser)
+
+    if(!currentUser){
+    return <p>You must be logged in to leave a rant or rave.</p>
+    }
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -53,12 +60,6 @@ function NewCommentForm({ place, onSubmit }) {
                 </div>
             </div>
             <div className="row">
-                <div className="form-group col-sm-4">
-                    <label htmlFor="state">Author</label>
-                    <select className="form-control" value={comment.authorId} onChange={e => setComment({ ...comment, authorId: e.target.value })}>
-                        {authorOptions}
-                    </select>
-                </div>
                 <div className="form-group col-sm-4">
                     <label htmlFor="stars">Star Rating</label>
                     <input

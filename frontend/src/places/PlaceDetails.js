@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useHistory, useParams } from "react-router"
 import CommentCard from './CommentCard'
 import NewCommentForm from "./NewCommentForm";
+//import { CurrentUser } from "../contexts/CurrentUser";
 
 function PlaceDetails() {
 
@@ -10,6 +11,8 @@ function PlaceDetails() {
 	const history = useHistory()
 
 	const [place, setPlace] = useState(null)
+
+	//const { currentUser } = useContext(CurrentUser)
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -34,7 +37,7 @@ function PlaceDetails() {
 		})
 		history.push('/places')
 	}
-
+	  
 	async function deleteComment(deletedComment) {
 		await fetch(`http://localhost:5001/places/${place.placeId}/comments/${deletedComment.commentId}`, {
 			method: 'DELETE'
@@ -51,6 +54,7 @@ function PlaceDetails() {
 		const response = await fetch(`http://localhost:5001/places/${place.placeId}/comments`, {
 			method: 'POST',
 			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(commentAttributes)
@@ -67,8 +71,6 @@ function PlaceDetails() {
 		})
 
 	}
-
-
 
 	let comments = (
 		<h3 className="inactive">
@@ -100,6 +102,8 @@ function PlaceDetails() {
 			)
 		})
 	}
+
+
 
 
 	return (
