@@ -13,19 +13,6 @@ function NewCommentForm({ place, onSubmit }) {
         //authorId: ''
     })
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const response = await fetch(`http://localhost:5001/users`)
-    //         const users = await response.json()
-    //         setAuthors(users)
-    //     }
-    //     fetchData()
-    // }, [setAuthors])
-
-    // let authorOptions = authors.map(author => {
-    //     return <option key={author.userId} value={author.userId}>{author.firstName} {author.lastName}</option>
-    // })
-
     function handleSubmit(e) {
         e.preventDefault()
         onSubmit(comment)

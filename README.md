@@ -1,7 +1,7 @@
 # Project REST-Rant
 REST-Rant is an app where users can review restaurants.
 
-### Setup
+## Setup
 First, you'll need a Postgres database to connect to. Follow instructions here to setup the database and save credentials for the next step.
 
 Next create a `.env` file inside of `backend`. It will need to contain the following environment variables (change the values for the database to match what you defined in the previous step)
@@ -18,7 +18,7 @@ Next, `cd` into `frontend`, and run `npm install` to install dependencies for th
 
 Finally, in separate terminals, run `npm start` in each folder so that the API and React app are running at the same time.
 
-### API (http://localhost:5001)
+## API (http://localhost:5001)
 | Method | Path                                 | Purpose                                   |
 | ------ | ------------------------------------ | ----------------------------------------- |
 | GET    | /                                    | Home page                                 |
@@ -31,7 +31,7 @@ Finally, in separate terminals, run `npm start` in each folder so that the API a
 | DELETE | /places/:placeId/comments/:commentId | Delete a comment about a particular place |
 
 
-### App (http://localhost:3000)
+## App (http://localhost:3000)
 | Path                  | Component                 | Purpose                                                                         |
 | --------------------- | ------------------------- | ------------------------------------------------------------------------------- |
 | /                     | `Home.js`                 | Home page                                                                       |
@@ -42,24 +42,23 @@ Finally, in separate terminals, run `npm start` in each folder so that the API a
 | /places/:placeId      | `places/PlaceDetails.js`  | Details of a place, including it's comments, and a form to create a new comment |
 | /places/:placeId/edit | `places/EditPlaceForm.js` | Form for editing a place                                                        |
 
+## Added a User-Logout function
+- Referenced GitHub-CoPilot for assistance with fixing errors with the use of React Hooks to implement this function
 
-#Added a User-Logout function
-- Referenced GitHub-CoPilot for assistance with fixing errors with the use of React Hooks
-
-##Photo references:
+## Photo references:
 - burger-photo.jpg
-    The Burger Joint
-    https://www.istockphoto.com/photo/junk-food-homemade-beef-burgers-on-vintage-wooden-background-gm1302436326-394176005?utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fhamburger-restaurant&utm_medium=affiliate&utm_source=unsplash&utm_term=hamburger+restaurant%3A%3A%3A
-    Photo by: Zygonema
+    - The Burger Joint
+    - Image source: https://www.istockphoto.com/photo/junk-food-homemade-beef-burgers-on-vintage-wooden-background-gm1302436326-394176005?utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fhamburger-restaurant&utm_medium=affiliate&utm_source=unsplash&utm_term=hamburger+restaurant%3A%3A%3A
+    - Photo by: Zygonema
 
 - jason-leung-unsplash.jpg
-    Mama's Kitchen
-    https://unsplash.com/collections/4308781/restaurant
-    Photo by: Jason Leung
+    - Mama's Kitchen
+    - Photo source: https://unsplash.com/collections/4308781/restaurant
+    - Photo by: Jason Leung
 
 -   jiangxulei1990-unsplash.jpg
-    Dad's Barbecue
-    https://unsplash.com/collections/4308781/restaurant
-    Photo by: Jiangxulei1990
+    - Dad's Barbecue
+    - Image source: https://unsplash.com/collections/4308781/restaurant
+    - Photo by: Jiangxulei1990
 
     

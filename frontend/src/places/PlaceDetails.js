@@ -1,11 +1,10 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router"
 import CommentCard from './CommentCard'
 import NewCommentForm from "./NewCommentForm";
 //import { CurrentUser } from "../contexts/CurrentUser";
 
 function PlaceDetails() {
-
 	const { placeId } = useParams()
 
 	const history = useHistory()
@@ -38,17 +37,26 @@ function PlaceDetails() {
 		history.push('/places')
 	}
 	  
-	async function deleteComment(deletedComment) {
-		await fetch(`http://localhost:5001/places/${place.placeId}/comments/${deletedComment.commentId}`, {
-			method: 'DELETE'
-		})
 
+	async function deleteComment(deletedComment) {
+		const response = await fetch(`http://localhost:5001/places/${place.placeId}/comments/${deletedComment.commentId}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${localStorage.getItem('token')}`
+			},
+			//body: JSON.stringify(commentAttributes)
+		})
+		const comment = await response.json()
 		setPlace({
 			...place,
-			comments: place.comments
-				.filter(comment => comment.commentId !== deletedComment.commentId)
+			comments: [
+				...place.comments,
+				comment
+			]
 		})
 	}
+
 
 	async function createComment(commentAttributes) {
 		const response = await fetch(`http://localhost:5001/places/${place.placeId}/comments`, {
@@ -102,10 +110,6 @@ function PlaceDetails() {
 			)
 		})
 	}
-
-
-
-
 	return (
 		<main>
 			<div className="row">

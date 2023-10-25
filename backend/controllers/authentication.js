@@ -45,7 +45,8 @@ router.get('/profile', async (req, res) => {
                     userId: id
                 }
             })
-            res.json(user)
+            // res.json(user)
+            res.json(res.currentUser)
         }
     } catch {
         res.json(null)
